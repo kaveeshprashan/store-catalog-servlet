@@ -13,7 +13,7 @@ import javax.servlet.http.HttpFilter;
 /**
  * Servlet Filter implementation class ParamloggingFilter
  */
-@WebFilter("/*")
+@WebFilter(urlPatterns="/*" , asyncSupported = true)
 public class ParamloggingFilter extends HttpFilter implements Filter {
        
     /**
