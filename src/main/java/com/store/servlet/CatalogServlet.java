@@ -3,6 +3,7 @@ package com.store.servlet;
 import java.io.IOException;
 
 import javax.servlet.AsyncContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -37,7 +38,10 @@ public class CatalogServlet extends HttpServlet {
 			
 			response.addCookie(new Cookie("cookie" , "value"));
 			response.setHeader("header" , "value");
-			response.getWriter().append(catalogItem.getName()); 
+			
+			request.setAttribute("message", catalogItem.getName());
+			RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+			dispatcher.forward(request, response);
 	}
 
 	/**
