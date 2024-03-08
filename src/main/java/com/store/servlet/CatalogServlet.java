@@ -39,7 +39,8 @@ public class CatalogServlet extends HttpServlet {
 			response.addCookie(new Cookie("cookie" , "value"));
 			response.setHeader("header" , "value");
 			
-			request.setAttribute("message", catalogItem.getName());
+			request.setAttribute("catalogItem", catalogItem.getName());
+			request.setAttribute("catalogItems", Catalog.getItems());
 			RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
 			dispatcher.forward(request, response);
 	}
